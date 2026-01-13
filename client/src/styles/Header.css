@@ -1,0 +1,232 @@
+/* ------------------------------ */
+/* 1. Root Variables (Palette)    */
+/* ------------------------------ */
+:root {
+  /* Adjusted Primary Color: A richer, slightly darker blue, but still vibrant */
+  --primary-color: #1a73e8; /* Google's Material Design Blue 500 */
+  
+  /* Header Background: A soft, very light blue/gray, almost white, to blend with sky */
+  --header-bg: #f5f9ff; /* Very light subtle blue tint */
+  
+  --text-dark: #333333; /* Slightly softer dark text */
+  --text-muted: #6a6a6a; /* Softer gray for subtitles */
+  --border-color: #e0e0e0; /* Lighter border for subtlety */
+  --header-height: 80px;
+}
+
+/* ------------------------------ */
+/* 2. Main Header Bar             */
+/* ------------------------------ */
+.app-header {
+  background-color: var(--header-bg);
+  height: var(--header-height);
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer, slightly larger shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ------------------------------ */
+/* 3. Logo Styling (New)          */
+/* ------------------------------ */
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.1;
+  transition: color 0.3s ease; /* Add transition for hover effect */
+}
+
+.logo-link:hover .logo-title {
+  color: #0d47a1; /* Slightly darker primary on hover */
+}
+
+.logo-subtitle {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ------------------------------ */
+/* 4. Desktop Navigation Links    */
+/* ------------------------------ */
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  background-color: rgba(26, 115, 232, 0.08); /* Light tint of primary on hover */
+}
+
+/* --- Beautiful Active Link Indicator --- */
+.nav-links a.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ------------------------------ */
+/* 5. Mobile Menu Button & Nav    */
+/* ------------------------------ */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.nav-toggle .hamburger {
+  display: block;
+  position: relative;
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color); /* Use primary color */
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+/* ------------------------------ */
+/* 6. Responsive (Mobile)         */
+/* ------------------------------ */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 15px;
+  }
+
+  .logo-title {
+    font-size: 1.5rem;
+  }
+  .logo-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: var(--header-bg); /* Use the subtle header background */
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease-in-out;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .nav-links a.active::after {
+    display: none;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background-color: rgba(26, 115, 232, 0.08); /* Consistent hover for mobile */
+  }
+
+  /* --- Hamburger "X" Animation --- */
+  .nav-toggle .hamburger.active {
+    background: transparent;
+  }
+  .nav-toggle .hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  .nav-toggle .hamburger.active::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+}

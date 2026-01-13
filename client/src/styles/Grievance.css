@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* --- Header & Animations --- */
+.form-header h2 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.form-header p {
+  color: #dcdcdc;
+  margin-top: 5px;
+}
+
+.header-img {
+  width: 175px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* --- Main Page Layout --- */
+.grievance-wrapper {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+/* --- Glass Card --- */
+.grievance-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 100%;
+  max-width: 950px;
+  color: #fff;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* --- Form Inputs (Cleaned) --- */
+.form-control,
+.form-select {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #222;
+  border-radius: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+  /* Conflicting layout rules removed. Bootstrap classes will handle width. */
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.form-control:focus,
+.form-select:focus {
+  outline: none;
+  background: #fff;
+  border-color: #0072ff;
+  box-shadow: 0 0 8px rgba(0, 114, 255, 0.4);
+}
+
+
+/* Make the upload section look wider and taller */
+.file-input {
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 16px 18px;        /* increase padding for height */
+  height: 60px;              /* make the box taller */
+  width: 100%;               /* make full width */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add hover and focus styles for visual polish */
+.file-input:hover,
+.file-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 1);
+  border-color: #0072ff;
+  box-shadow: 0 0 10px rgba(0, 114, 255, 0.3);
+}
+
+.file-input:focus {
+  outline: none;
+  background: #fff;
+  border-color: #0072ff;
+  box-shadow: 0 0 8px rgba(0, 114, 255, 0.4);
+}
+
+
+/* Change this selector */
+.btn.btn-gradient {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border: none; /* This correctly overrides Bootstrap's default border */
+  color: white;
+  padding: 14px 35px; /* This overrides Bootstrap's default padding */
+  border-radius: 40px; /* This overrides Bootstrap's default radius */
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn.btn-gradient:hover {
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4);
+  transform: translateY(-2px); /* Adds a subtle "lift" effect */
+}
+
+/* --- Other --- */
+select option {
+  background-color: white;
+  color: black;
+}
+/* Ensure the button sits visually inside the glass card and centered */
+.grievance-card .submit-btn {
+  /* ensure it's above the overlay if layers are weird */
+  position: relative;
+  z-index: 3;
+  /* tweak padding & min-width for consistent size */
+  padding: 12px 36px;
+  min-width: 220px;
+  line-height: 1.1;
+  box-shadow: 0 8px 20px rgba(0, 110, 220, 0.15);
+}
+
+/* Make the row that holds the button honor layout and not be affected by other global rules */
+.grievance-card .row.mt-5 {
+  margin-top: 2rem; /* keep spacing consistent */
+}
+
+/* If some global style accidentally sets .text-center to display:block with margins,
+   this ensures any .grievance-card content centers correctly */
+.grievance-card .d-flex.justify-content-center {
+  justify-content: center !important;
+  align-items: center;
+}
+
+/* Mobile tweak: full width on very small screens */
+@media (max-width: 480px) {
+  .grievance-card .submit-btn {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,274 @@
+/* admin.css - final polished layout */
+
+/* base */
+.admin-dashboard { font-family: "Poppins", sans-serif; color: #1c1c1c; }
+
+/* header area */
+.dashboard-title { font-size: 1.9rem; font-weight: 700; color: #0b4da1; margin-bottom: 3px; }
+.top-actions { display:flex; align-items:center; gap:10px; }
+.logout-btn {
+  display:inline-block; text-decoration:none;
+  background:white; border:1.5px solid #0b4da1; color:#0b4da1; padding:8px 12px; border-radius:8px; font-weight:700;
+}
+.logout-btn:hover { background:#0b4da1; color:white; }
+
+/* Control rectangle */
+.control-panel {
+  display:flex; gap:18px; justify-content:space-between;
+  background:#f6fbff; padding:20px; border-radius:12px;
+  border:1px solid #e6f0fb; box-shadow:0 6px 20px rgba(10,40,100,0.04);
+  margin-bottom:14px;
+}
+.control-item { flex:1; display:flex; flex-direction:column; margin:0 6px; min-width:0; }
+.control-item label { font-weight:700; color:#0b4da1; margin-bottom:8px; }
+.control-item select, .control-item input {
+  padding:10px 12px; border-radius:8px; border:1px solid #dbeafc; font-size:0.95rem;
+}
+
+/* search buttons */
+.search-buttons { display:flex; gap:10px; margin-top:8px; }
+.search-buttons button {
+  padding:6px 10px; border-radius:6px; border:1px solid #0b4da1; background:white; color:#0b4da1; font-weight:700;
+}
+.search-buttons button:hover { background:#e9f3ff; color:#003b7a; }
+
+/* totals */
+.summary { margin:10px 0 16px 6px; display:flex; gap:16px; font-weight:700; color:#0b4da1; }
+.badge { background:#e6f5ff; color:#0b4da1; padding:6px 10px; border-radius:8px; }
+
+/* table container */
+.table-container { background:white; border-radius:12px; overflow-x:auto; border:1px solid #e6f0fb; box-shadow:0 8px 28px rgba(10,30,80,0.04); }
+
+/* table */
+.grievance-table { width:100%; border-collapse:collapse; table-layout:auto; min-width:900px; font-size:0.95rem; }
+.grievance-table thead th {
+  padding:12px; text-align:left; background:#eaf6ff; color:#0b4da1; border-bottom:2px solid #cfe7fb; font-weight:700;
+}
+.grievance-table tbody td {
+  padding:12px; vertical-align:top; border-bottom:1px solid #eef6fb; background:#fff; color:#213243; box-sizing:border-box;
+}
+
+/* alternating rows and hover */
+.grievance-table tbody tr:nth-child(odd) td { background:#fbfeff; }
+.grievance-table tbody tr:hover td { background:#f3f9ff; }
+
+/* ID column */
+.id-cell { font-family:monospace; font-size:0.9rem; color:#0b4da1; word-break:break-all; cursor:pointer; position:relative; }
+
+/* copied badge */
+.copied-badge {
+  display:inline-block; background:#0b66d1; color:white; font-size:0.72rem; padding:2px 7px; border-radius:12px; margin-left:8px;
+}
+
+/* email column */
+.email-cell { max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* grievance & feedback clamp to 3 lines */
+.text-cell {
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:8;
+  overflow:hidden; word-break:break-word; line-height:1.25;
+  max-height: calc(1.25em * 8);
+  position:relative;
+}
+.text-cell::after {
+  /* subtle gradient hint if truncated */
+  content:""; position:absolute; left:0; right:0; bottom:0; height:0.9em; pointer-events:none;
+  background: linear-gradient(180deg, rgba(255,255,255,0), #fff 85%);
+}
+
+/* center some columns: phone, status, date */
+.grievance-table td:nth-child(4), .grievance-table td:nth-child(7), .grievance-table td:nth-child(9) {
+  text-align:center;
+}
+
+/* update button centered bottom */
+.update-btn {
+  display:inline-block; background:#0b4da1; color:white; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700;
+}
+.update-btn:hover { background:#083b7a; }
+
+/* responsiveness */
+@media (max-width: 1100px) {
+  .control-panel { flex-direction:column; gap:12px; }
+  .control-item { margin:0; }
+  .grievance-table { min-width:700px; }
+  .email-cell { max-width:140px; }
+  .text-cell { -webkit-line-clamp:2; max-height: calc(1.25em * 2); }
+}
+@media (max-width: 700px) {
+  .grievance-table { min-width:640px; }
+  .text-cell { -webkit-line-clamp:2; }
+  .summary { flex-direction:column; gap:6px; }
+}
+.update-container {
+  font-family: 'Poppins', sans-serif;
+  color: #213243;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #e3eef9;
+}
+
+.btn-white {
+  background: #fff;
+  color: #0072ff;
+  border: 1px solid #0072ff;
+  transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+  background: #0072ff;
+  color: #fff;
+}
+/* ===== UpdateDocs specific adjustments ===== */
+
+/* topbar layout */
+.topbar { align-items: center; gap: 12px; }
+.topbar-left { flex: 0 0 auto; }
+.topbar-center { text-align: center; flex: 1 1 auto; }
+.topbar-right { flex: 0 0 auto; }
+
+/* Return button top-left */
+.return-btn {
+  display:inline-block;
+  background:#fff;
+  border:1px solid #cbdcf6;
+  color:#0b4da1;
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  /* This affects only the Return button inside UpdateDocs */
+  margin-top: -200px;   /* move up */
+  margin-left: 0px;  /* move right */
+  margin-right: auto; /* push away from other buttons */
+}
+.return-btn:hover { background:#0275f9; }
+
+/* Logout at top-right - match Admin Dashboard */
+.logout-btn-header {
+  background:#fff;
+  color:#0b4da1;
+  border:1px solid #0b4da1;
+  padding:8px 12px;
+  border-radius:8px;
+  font-weight:700;
+}
+.logout-btn-header:hover { background:#0b4da1; color:#fff; }
+
+/* label line (first line) - already handled by label */
+
+// Input row: 80% / 20%
+.getdata-row { display:flex; gap:12px; align-items:center; }
+.id-input { flex: 0 0 80%; min-width:0; } /* min-width:0 to allow flex shrink on small screens */
+.getdata-btn { flex: 0 0 20%; }
+
+/* Make sure the input/button scale nicely on small screens */
+@media (max-width: 720px) {
+  .getdata-row { flex-direction: column; }
+  .id-input { flex: 0 0 auto; width: 100%; }
+  .getdata-btn { flex: 0 0 auto; width: 100%; }
+  .topbar-center { display:none; } /* hide center title on very small screens to save space */
+}
+
+
+
+/* Buttons layout bottom: left green update, right return */
+.update-left {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.update-left:hover { background-color: #218838; }
+
+/* ensure return-right is aligned right */
+.return-right {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-success {
+  display: block;
+  margin: 385px auto 0 auto; /* centered below feedback */
+  padding: 12px 32px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #28a745;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #016116;
+}
+/* card and container tweaks for consistent spacing */
+.update-container .card { border-radius: 12px; border: 1px solid #e6f0fb; }
+.update-container .dashboard-title { font-weight:700; color:#0b4da1; }
+/* === Top Bar Layout === */
+.update-container .btn-white {
+  background: #fff;
+  color: #0b4da1;
+  border: 1px solid #0b4da1;
+  font-weight: 600;
+}
+.update-container .btn-white:hover {
+  background: #0b4da1;
+  color: #fff;
+}
+
+.update-container .btn-outline-secondary {
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* === Get Data Section === */
+.getdata-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.id-input {
+  flex: 0 0 80%;
+}
+/* Adjust Get Data button position */
+.getdata-row {
+  display: block;
+}
+.getdata-btn {
+  display: block;
+  width: 15%;     /* or 100% for full width */
+  margin-top: 130px;
+}
+
+
+/* === Feedback & Update === */
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* === Grievance text box === */
+.grievance-text {
+  background: #f9fbff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dce6f5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 1.3;
+}

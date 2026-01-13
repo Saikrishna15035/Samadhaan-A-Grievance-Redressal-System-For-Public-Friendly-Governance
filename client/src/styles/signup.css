@@ -1,0 +1,170 @@
+/* Import a clean, modern font (optional, but recommended) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.signup-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Use min-height to ensure it fills the screen */
+  background: linear-gradient(135deg, #9be7ff 0%, #a7c4fd 100%);
+  font-family: 'Poppins', sans-serif;
+  overflow: auto; /* Allow scrolling on small screens */
+  padding: 20px;
+}
+
+/* Main layout card */
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Reduced gap slightly */
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  
+  /* --- KEY STYLE --- */
+  /* This creates the "frosted glass" container for the whole card */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(10px); /* This is the "blur" effect */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+}
+
+/* Left Side Image */
+.signup-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-left img {
+  width: 100%;
+  max-width: 380px;
+  /* Removed border-radius and hover:transform. 
+     Illustrations often look better fitting their own shape. */
+}
+
+/* Right Side Form */
+.signup-right {
+  flex: 1.2; /* Give the form a bit more space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Removed background: transparent, it's handled by the parent */
+}
+
+.signup-title {
+  font-size: 2.1rem; /* Slightly smaller for balance */
+  font-weight: 600;
+  color: #1d3557; /* Dark, rich blue */
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #004a7c; /* A more readable, darker accent */
+  margin-bottom: 25px;
+}
+
+/* --- MODERN INPUTS --- */
+.input-group {
+  position: relative;
+  margin-bottom: 18px; /* Tighter spacing */
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  color: #1d3557;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Soft border */
+  border-radius: 10px; /* Rounded inputs */
+  outline: none;
+  background: rgba(255, 255, 255, 0.3); /* Translucent input background */
+  font-size: 15px;
+  transition: all 0.3s ease;
+  color: #002349; /* Dark text for readability */
+}
+
+/* Style for placeholder text */
+.input-group input::placeholder {
+  color: #004a7c;
+  opacity: 0.7;
+}
+
+.input-group input:focus {
+  /* On focus, make it "pop" */
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 119, 182, 0.2);
+}
+
+/* --- MODERN BUTTON --- */
+.signup-btn {
+  background: linear-gradient(135deg, #0077b6, #48cae4);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  width: 100%; /* Make button full-width */
+  border-radius: 10px; /* Match inputs */
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 10px; /* Add space above button */
+}
+
+.signup-btn:hover {
+  transform: translateY(-3px); /* Stronger hover effect */
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.4);
+}
+
+/* Bottom link */
+.signup-links {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-links a {
+  color: #1d3557;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.signup-links a:hover {
+  color: #0077b6;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .signup-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    /* Remove glass effect on mobile if it's slow, or keep it */
+    /* background: white; */ 
+    /* backdrop-filter: none; */
+  }
+
+  .signup-left img {
+    width: 60%;
+    max-width: 250px; /* Smaller on mobile */
+    margin-bottom: 20px;
+  }
+  
+  .signup-right {
+    padding: 0;
+  }
+}

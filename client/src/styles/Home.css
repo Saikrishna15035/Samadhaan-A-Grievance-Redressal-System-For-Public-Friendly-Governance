@@ -1,0 +1,204 @@
+/* ---------------------------------- */
+/* GLOBAL & UTILITY STYLES            */
+/* ---------------------------------- */
+:root {
+  --primary-color: #0056b3; /* A trustworthy blue */
+  --secondary-color: #f8f9fa; /* Light gray background (matches Bootstrap) */
+  --dark-color: #343a40; /* Dark color (matches Bootstrap 'bg-dark') */
+  --light-color: #fff;
+  --text-color: #555;
+}
+
+/* Page wrapper ensures footer stays at bottom if content is short */
+.home-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1; /* Allows main content to grow and push footer down */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  color: var(--dark-color);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ---------------------------------- */
+/* HERO SECTION                       */
+/* ---------------------------------- */
+.hero-section {
+  background: #fdfdfd;
+  padding: 60px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Button styles (can be shared) */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  text-decoration: none;
+  color: var(--light-color);
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: #004494;
+  color: var(--light-color);
+}
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  color: var(--light-color);
+}
+
+
+/* ---------------------------------- */
+/* ABOUT SECTION (Homepage)           */
+/* ---------------------------------- */
+.about-section {
+  padding: 60px 0;
+  background-color: var(--light-color);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+  /* Placeholder styles */
+  background: #eee;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  color: #777;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* ---------------------------------- */
+/* CAROUSEL SECTION                   */
+/* ---------------------------------- */
+.carousel-section {
+  padding: 60px 0;
+  background-color: var(--secondary-color);
+}
+
+
+/* ---------------------------------- */
+/* RESPONSIVE STYLES (Mobile)         */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+
+  .hero-content,
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Reverse stacking for about section */
+  .about-content {
+     flex-direction: column-reverse;
+  }
+  
+  .hero-text {
+    order: 2; /* Text below image */
+  }
+  
+  .hero-image {
+    order: 1; /* Image on top */
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .btn {
+    margin-right: 0;
+  }
+}
